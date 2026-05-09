@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="wp-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2271b1" />
+      <stop offset="100%" stop-color="#135e96" />
+    </linearGradient>
+    <filter id="drop">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1d2327" flood-opacity="0.15" />
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#ffffff" filter="url(#drop)" />
+  <path d="M82.5 42C77 36 65 34 54 38C45 41 40 49 42 58C44 67 52 72 61 75C71 78 77 84 75 93C73 103 62 108 51 104C42 100 37 92 37 92" fill="none" stroke="url(#wp-blue)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

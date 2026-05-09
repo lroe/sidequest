@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "SideQuest - Smart Chat Branching",
+  "version": "1.0",
+  "description": "Branch off your ChatGPT or Gemini chats into a new tab with full context, so you can ask doubts without cluttering your main study chat.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://chatgpt.com/*",
+    "*://gemini.google.com/*"
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Branch this chat"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "icons": {
+  "16": "icons/icon16.png",
+  "48": "icons/icon48.png",
+  "128": "icons/icon128.png"
+}
+
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SideQuest</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="wp-core-ui">
+  <div class="wrap">
+    <h1 class="wp-heading-inline">Branch Context</h1>
+    <p class="description">Ask your doubt in a new tab without losing progress here.</p>
+    
+    <div class="postbox">
+      <div class="inside">
+        <div class="form-field">
+          <label for="doubtInput"><strong>Your Question</strong></label>
+          <textarea name="doubtInput" id="doubtInput" class="large-text" rows="4" placeholder="Enter your doubt or question here..."></textarea>
+          <p class="description">This will be sent to the AI along with your current chat history.</p>
+        </div>
+
+        <div class="form-field platform-options">
+          <label><strong>Target Platform</strong></label>
+          <fieldset>
+            <label><input type="radio" name="platform" value="same" checked="checked"> <span>Current AI</span></label>
+            <label><input type="radio" name="platform" value="chatgpt"> <span>ChatGPT</span></label>
+            <label><input type="radio" name="platform" value="gemini"> <span>Gemini</span></label>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit">
+      <button type="button" id="branchBtn" class="button button-primary button-large">Branch into New Tab</button>
+      <span id="status" class="spinner-container hidden">
+        <span class="spinner is-active"></span>
+        <span class="status-text">Processing...</span>
+      </span>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
