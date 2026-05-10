@@ -1,3 +1,24 @@
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: "ask_gemini",
+    title: "Ask Gemini what's this",
+    contexts: ["selection"]
+  });
+});
+
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === "ask_gemini") {
+    const doubt = `What's this? "${info.selectionText}"`;
+    handleBranching({
+      context: '', 
+      doubt: doubt,
+      platform: 'gemini',
+      sourceUrl: tab.url,
+      hasContext: false
+    });
+  }
+});
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'branch_chat') {
     handleBranching(message.data).then(() => {
