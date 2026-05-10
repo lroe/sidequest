@@ -4,11 +4,25 @@ chrome.runtime.onInstalled.addListener(() => {
     title: "Ask Gemini what's this",
     contexts: ["selection"]
   });
+  chrome.contextMenus.create({
+    id: "explain_gemini",
+    title: "Ask Gemini to explain step-by-step",
+    contexts: ["selection"]
+  });
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "ask_gemini") {
     const doubt = `What's this? "${info.selectionText}"`;
+    handleBranching({
+      context: '', 
+      doubt: doubt,
+      platform: 'gemini',
+      sourceUrl: tab.url,
+      hasContext: false
+    });
+  } else if (info.menuItemId === "explain_gemini") {
+    const doubt = `I didn't understand the following text. Explain each concept one concept at a time. Move to the next when I say next. Make sure I understand it:\n\n"${info.selectionText}"`;
     handleBranching({
       context: '', 
       doubt: doubt,
